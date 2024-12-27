@@ -21,4 +21,4 @@ ENV PORT=5000
 ENV CONNECTION_STRING="mongodb://localhost:27017/mydatabase"
 
 # Command to run the application
-CMD ["node", "app.js"]
+CMD ["node", "./src/app.js"]

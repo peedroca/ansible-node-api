@@ -13,8 +13,6 @@ Disk: 58gb
 ssh pedromoreira@ph.local
 ```
 
-... Maybe you need add some permissions on your dev container with `sudo apt install sshpass -y`
-
 2. Run the below code to provisioning new machine
 ```bash
 ansible-playbook -i hosts provision_docker.yml 
