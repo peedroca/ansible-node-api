@@ -1,0 +1,2 @@
+[ubuntu_lan]
+ph.local ansible_user=pedromoreira ansible_password=1080 ansible_become=true ansible_become_password=1080

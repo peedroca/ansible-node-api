@@ -1,0 +1,24 @@
+services:
+  # MongoDB service
+  mongo:
+    image: mongodb/mongodb-community-server
+    container_name: devmonk-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: devmonk
+      MONGO_INITDB_ROOT_PASSWORD: devmonk
+    ports:
+      - '27018:27017'
+
+  # Node.js Express API service
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: devmonk-api
+    environment:
+      PORT: 5000
+      CONNECTION_STRING: mongodb://devmonk:devmonk@mongo:27017/admin
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mongo

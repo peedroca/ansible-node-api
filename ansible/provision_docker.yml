@@ -1,0 +1,34 @@
+---
+- name: Provision Docker on Ubuntu LAN Machine
+  hosts: ubuntu_lan
+  become: yes
+  tasks:
+    - name: Update the package list
+      apt:
+        update_cache: yes
+
+    - name: Install tree utility
+      apt:
+        name: tree
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Start Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Clone API repository
+      git:
+        repo: 'https://github.com/peedroca/ansible-node-api.git'
+        dest: /opt/api
+
+    - name: Run Docker Compose to start services
+      shell: docker-compose up -d
+      args:
+        chdir: /opt/api
