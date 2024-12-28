@@ -34,6 +34,6 @@
         dest: /opt/api
 
     - name: Run Docker Compose to start services
-      shell: docker-compose up -d
+      shell: docker-compose up -d --build
       args:
         chdir: /opt/api
