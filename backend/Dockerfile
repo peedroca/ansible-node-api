@@ -14,10 +14,10 @@ RUN npm install --only=production
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 5000
+EXPOSE 8000
 
 # Define environment variables for PORT and CONNECTION_STRING
-ENV PORT=5000
+ENV PORT=8000
 ENV CONNECTION_STRING="mongodb://localhost:27017/mydatabase"
 
 # Command to run the application

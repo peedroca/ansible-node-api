@@ -33,13 +33,6 @@
         repo: 'https://github.com/peedroca/ansible-node-api.git'
         dest: /opt/api
 
-    - name: Create .env file
-      copy:
-        dest: /opt/api/.env
-        content: |
-          PORT=5000
-          CONNECTION_STRING=mongodb://devmonk:devmonk@mongo:27017/mydatabase
-
     - name: Run Docker Compose to start services
       shell: docker-compose up -d
       args:
